@@ -8,28 +8,58 @@
     body {
       font-family: Garamond, serif;
       background-color: #F9FFF8;
-      color: #006400; /* dark green */
+      color: #006400;
       margin: 0;
       padding: 0;
+    }
+
+    .banner {
+      position: relative;
+      width: 100vw;
+      height: 300px;
+      background-color: black;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      user-select: none; /* disable selection */
     }
 
-    h1 {
-      margin-top: 40px;
+    #morseBanner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #00FF00;
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      user-select: none; /* disable selection */
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+      user-select: none; /* disable selection */
+    }
+
+    .content h1 {
+      margin: 0;
       font-size: 3em;
-      text-align: center;
     }
 
-    p {
+    .content p {
+      margin: 10px 0 20px;
       font-size: 1.2em;
-      text-align: center;
-      max-width: 600px;
-    }
-
-    .button-container {
-      margin: 20px 0;
     }
 
     .cv-button {
@@ -46,39 +76,17 @@
     .cv-button:hover {
       background-color: #004d00;
     }
-
-    .banner {
-      background-color: black;
-      color: #00FF00;
-      width: 100%;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      padding: 10px;
-      margin-bottom: 50px;
-    }
-
-    #morseBanner {
-      display: inline-block;
-      font-family: monospace;
-      white-space: pre-wrap;
-      word-break: break-all;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
 
-    <div class="banner">
-    <span id="morseBanner"></span>
-  </div>
-  <h1>Grace Finch</h1>
-  <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
-
-  <div class="button-container">
-    <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download CV</a>
+  <div class="banner">
+    <div id="morseBanner"></div>
+    <div class="content">
+      <h1>Grace Finch</h1>
+      <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
+      <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download CV</a>
+    </div>
   </div>
 
   <script>
@@ -97,10 +105,10 @@
 
     const banner = document.getElementById("morseBanner");
 
-    // Pick a random phrase and replace slashes with spaces
+    // Random phrase & replace slashes
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)].replace(/\//g, " ");
 
-    // Function to find maximum font size that fits
+    // Fit font size to banner
     function getMaxFontSize() {
       let fontSize = 50;
       banner.style.fontSize = fontSize + "px";
@@ -114,14 +122,13 @@
         banner.style.fontSize = fontSize + "px";
       }
 
-      // Clear text for typing animation
       banner.textContent = "";
       return fontSize;
     }
 
-    const finalFontSize = getMaxFontSize();
+    getMaxFontSize();
 
-    // Typing animation with correct font size
+    // Typing animation
     let i = 0;
     function typeEffect() {
       if (i < randomPhrase.length) {
@@ -132,6 +139,12 @@
     }
 
     typeEffect();
+
+    // Disable right-click on banner
+    banner.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+      alert("Copying is disabled!");
+    });
   </script>
 </body>
 </html>
