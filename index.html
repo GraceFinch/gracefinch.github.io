@@ -19,7 +19,7 @@
     .banner {
       width: 100vw;
       height: 300px;
-      background-color: black;
+      background: linear-gradient(to bottom, #001900 85%, #F9FFF8 100%); /* dark green fading into background */
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -28,7 +28,7 @@
     }
 
     #morseBanner {
-      color: #00FF00;
+      color: #33ff33; /* slightly lighter green than background */
       font-family: monospace;
       white-space: pre-wrap;
       word-break: break-all;
@@ -39,6 +39,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 20px #00cc00; /* glowing digital effect */
     }
 
     h1 {
@@ -138,4 +139,3 @@
   </script>
 </body>
 </html>
-
