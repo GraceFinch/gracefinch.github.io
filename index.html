@@ -11,10 +11,12 @@
       color: #006400;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .banner {
-      position: relative;
       width: 100vw;
       height: 300px;
       background-color: black;
@@ -26,40 +28,30 @@
     }
 
     #morseBanner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       color: #00FF00;
       font-family: monospace;
       white-space: pre-wrap;
       word-break: break-all;
+      text-align: center;
+      user-select: none; /* disable selection */
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      user-select: none; /* disable selection */
     }
 
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1;
-      user-select: none; /* disable selection */
-    }
-
-    .content h1 {
-      margin: 0;
+    h1 {
+      margin-top: 40px;
       font-size: 3em;
+      text-align: center;
     }
 
-    .content p {
-      margin: 10px 0 20px;
+    p {
       font-size: 1.2em;
+      text-align: center;
+      max-width: 600px;
+      margin: 10px 0 20px;
     }
 
     .cv-button {
@@ -71,6 +63,7 @@
       border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
+      margin-bottom: 50px;
     }
 
     .cv-button:hover {
@@ -82,12 +75,11 @@
 
   <div class="banner">
     <div id="morseBanner"></div>
-    <div class="content">
-      <h1>Grace Finch</h1>
-      <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
-      <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download CV</a>
-    </div>
   </div>
+
+  <h1>Grace Finch</h1>
+  <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
+  <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download CV</a>
 
   <script>
     const phrases = [
@@ -104,8 +96,6 @@
     ];
 
     const banner = document.getElementById("morseBanner");
-
-    // Random phrase & replace slashes
     let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)].replace(/\//g, " ");
 
     // Fit font size to banner
@@ -134,7 +124,7 @@
       if (i < randomPhrase.length) {
         banner.textContent += randomPhrase.charAt(i);
         i++;
-        setTimeout(typeEffect, 10); // 4x faster
+        setTimeout(typeEffect, 10);
       }
     }
 
@@ -148,3 +138,4 @@
   </script>
 </body>
 </html>
+
