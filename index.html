@@ -2,66 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grace FinchT</title>
+  <title>PURPLE ELEPHANT</title>
   <style>
     body {
+      background-color: #F9FFF8;
       font-family: Garamond, serif;
       text-align: center;
-      background-color: #F9FFF8; /* new background color */
-      color: #333;
       margin: 0;
-      padding: 50px;
     }
-    h1 {
-      font-size: 3em;
-      color: green;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.5;
-    }
-    .cv-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 20px;
-      font-size: 1em;
-      font-family: Garamond, serif;
+    .banner {
+      background-color: #228B22; /* green banner */
       color: white;
-      background-color: green; /* button is now green */
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .cv-button:hover {
-      background-color: darkgreen; /* hover effect */
-    }
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #777;
+      padding: 20px;
+      font-size: 20px;
+      font-family: monospace;
     }
   </style>
 </head>
 <body>
-  <!-- Morse Banner placeholder -->
-  <div id="morse-banner"></div>
+  <div class="banner" id="morseBanner"></div>
 
   <h1>PURPLE ELEPHANT</h1>
-  <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
-  <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download My CV</a>
+  <p>welcome to my website! Coding is slow and I have many projects going on... I'm working on it now</p>
 
-  <footer>
-    © 2025 Purple Elephant — All rights reserved.
-  </footer>
+  <script>
+    // List of phrases
+    const phrases = [
+      "YOU HAVE POWER OVER YOUR MIND, NOT OUTSIDE EVENTS. REALIZE THIS, AND YOU WILL FIND STRENGTH",
+      "THE GREATEST VICTORY IS THAT WHICH REQUIRES NO BATTLE",
+      "NOW FAITH IS THE ASSURANCE OF THINGS HOPED FOR, THE CONVICTION OF THINGS NOT SEEN",
+      "I SEE NOW THAT THE CIRCUMSTANCES OF ONES BIRTH ARE IRRELEVANT. IT IS WHAT YOU DO WITH THE GIFT OF LIFE THAT DETERMINES WHO YOU ARE",
+      "IF I HAVE SEEN FURTHER IT IS BY STANDING ON THE SHOULDERS OF GIANTS",
+      "ANYONE WHO SEEKS TRUTH SEEKS GOD, WHETHER OR NOT HE REALIZES IT",
+      "ONLY A CURIOUS AND UNIQUE PERSON AS YOURSELF WOULD READ MY MORSE CODE MESSAGES. I'M INTRIGUED",
+      "HELLO, WELCOME TO MY WEBSITE. I HOPE YOU ENJOY PUZZLES",
+      "ONE PROBLEM WITH BEING A LEADER, IS THAT EVEN AMONG YOUR FRIENDS YOU ARE ALONE",
+      "WHETHER YOU ALWAYS AGREE IS INCONSEQUENTIAL, BUT YOU MUST TAKE CARE OF ONE ANOTHER"
+    ];
 
-  <!-- Load the JavaScript -->
-  <script src="morse code banner/morse-banner.js"></script>
+    // Morse code dictionary
+    const morseCode = {
+      A: ".-", B: "-...", C: "-.-.", D: "-..", E: ".",
+      F: "..-.", G: "--.", H: "....", I: "..", J: ".---",
+      K: "-.-", L: ".-..", M: "--", N: "-.", O: "---",
+      P: ".--.", Q: "--.-", R: ".-.", S: "...", T: "-",
+      U: "..-", V: "...-", W: ".--", X: "-..-", Y: "-.--",
+      Z: "--..", " ": "/"
+    };
+
+    function textToMorse(text) {
+      return text.toUpperCase().split("").map(ch => morseCode[ch] || "").join(" ");
+    }
+
+    // Pick random phrase and convert
+    const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+    const morse = textToMorse(phrase);
+
+    // Display in banner
+    document.getElementById("morseBanner").textContent = morse;
+  </script>
 </body>
-
 </html>
-
