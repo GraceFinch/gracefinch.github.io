@@ -16,8 +16,8 @@
       margin: 0;
       padding: 0;
     }
-
-    /* Banner */
+    
+/* Banner (same as before) */
 .banner {
   width: 100vw;
   height: 150px;
@@ -26,21 +26,17 @@
   justify-content: center;
   align-items: center;
   user-select: none;
-  position: relative; /* needed for ::after positioning */
-  overflow: visible;  /* allows scallops to hang below */
+  position: relative;
 }
 
-/* scalloped bottom */
-.banner::after {
-  content: "";
-  position: absolute;
-  bottom: -20px; /* move scallops outside banner */
-  left: 0;
+/* Scallops below banner */
+.scallops {
   width: 100%;
   height: 40px;
   background: radial-gradient(circle at 20px 20px, #F9FFF8 20px, #307030 21px) repeat-x;
   background-size: 40px 40px;
 }
+
 
     #morseBanner {
       color: #409c40; /* slightly lighter green than background */
@@ -158,9 +154,12 @@
 </head>
 <body>
 
-  <div class="banner">
-    <div id="morseBanner"></div>
-  </div>
+<div class="banner">
+  <div id="morseBanner"></div>
+</div>
+
+<!-- Scallop strip -->
+<div class="scallops"></div>
 
   <div class="intro">
     <div class="profile-photo">
