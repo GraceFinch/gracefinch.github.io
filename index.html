@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grace Finch</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* ------------------------------------------------------------------ */
+    /* --- CONSOLIDATED & RESPONSIVE CSS STYLES --- */
+    /* ------------------------------------------------------------------ */
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #F9FFF8;
@@ -16,40 +19,40 @@
       margin: 0;
       padding: 0;
     }
-    
-/* Banner */
-.banner {
-  width: 100vw;
-  height: 150px;
-  background-color: #307030;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  position: relative;
-}
 
-/* Scallops row */
-.scallops {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  overflow: hidden;
-  background: #F9FFF8; /* page background */
-}
+    /* Banner */
+    .banner {
+      width: 100vw;
+      height: 150px;
+      background-color: #307030;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      position: relative;
+    }
 
-.scallops::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 60px; /* height of scallops container */
-  background: radial-gradient(circle at top, #307030 30px, transparent 31px) repeat-x;
-  background-size: 60px 60px; /* width = 2 * radius */
-  transform: translateY(0px); /* shift up by half the height */
-}
+    /* Scallops row */
+    .scallops {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      overflow: hidden;
+      background: #F9FFF8;
+    }
+
+    .scallops::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 60px;
+      background: radial-gradient(circle at top, #307030 30px, transparent 31px) repeat-x;
+      background-size: 60px 60px;
+      transform: translateY(0px);
+    }
 
     #morseBanner {
-      color: #409c40; /* slightly lighter green than background */
+      color: #409c40;
       font-family: monospace;
       white-space: pre-wrap;
       word-break: break-all;
@@ -60,26 +63,30 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 20px #00cc00; /* glowing digital effect */
+      text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 20px #00cc00;
     }
 
-    /* Intro section */
+    /* --- INTRO SECTION: MOBILE-FIRST STACKING --- */
     .intro {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 40px 5%;
+      /* Stack elements vertically on mobile */
+      flex-direction: column; 
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 5%; /* Reduced vertical padding for mobile */
     }
 
     /* Profile photo */
     .profile-photo {
       flex: 0 0 auto;
       text-align: center;
+      /* Ensure it always displays on top */
+      order: 1; 
     }
 
     .profile-photo img {
-      width: 300px;
-      height: 300px;
+      width: 200px; /* Reduced size for better fit on mobile */
+      height: 200px;
       object-fit: cover;
       object-position: center 30%;
       border-radius: 50%;
@@ -96,69 +103,195 @@
     /* Text content */
     .intro-text {
       flex: 1;
-      margin-left: -150px; /* slightly closer to image */
-      max-width: 600px;
+      /* Remove negative margin on mobile to prevent overflow */
+      margin-left: 0; 
+      max-width: 100%;
+      text-align: center; /* Center text with image */
+      padding: 20px 0; /* Add vertical padding */
+      order: 3; /* Displays after the buttons on mobile */
     }
 
     .intro-text h1 {
-      font-size: 3.5em;
-      margin: 0 0 20px;
-      text-align: left;
+      font-size: 2.5em; /* Smaller font size for mobile */
+      margin: 0 0 10px;
+      text-align: center;
     }
 
     .intro-text p {
-      font-size: 1.2em;
-      text-align: left;
+      font-size: 1em; /* Smaller font size for mobile */
+      text-align: center;
       margin: 0;
     }
 
     /* Button container for stacked buttons */
     .button-container {
       display: flex;
-      flex-direction: column; /* stack vertically */
-      align-items: center;    /* center horizontally */
-      gap: 20px;              /* space between CV and email buttons */
+      /* Change to a row layout on mobile to save vertical space */
+      flex-direction: row; 
+      align-items: center;
+      justify-content: center;
+      gap: 40px; 
       flex: 0 0 auto;
+      /* Displays after image but before text on mobile */
+      order: 2; 
+      width: 100%;
+      padding: 20px 0;
     }
 
-    /* CV Button */
-    .cv-button a {
+    /* CV Button and Email Button sizes reduced for mobile row layout */
+    .cv-button a, .email-button a {
+      width: 70px; 
+      height: 70px;
+      font-size: 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100px;
-      height: 100px;
       background-color: #0d470d;
       color: white;
-      font-size: 2.0rem;
       font-weight: bold;
       text-decoration: none;
       border-radius: 50%;
       transition: background 0.3s;
+    }
+
+    .email-button a {
+      font-size: 2rem;
     }
 
     .cv-button a:hover {
       background-color: #1b7c1b;
     }
-
-    /* Email Button */
-    .email-button a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100px;
-      height: 100px;
-      background-color: #0d470d;
-      color: white;
-      font-size: 2.4rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 50%;
-      transition: background 0.3s;
-    }
-
+    
     .email-button a:hover {
       background-color: #1b7c1b;
+    }
+
+    /* ASCII Divider */
+    .ascii-divider {
+      text-align: center;
+      font-family: monospace;
+      color: #006400;
+      /* Reduced margin for mobile */
+      margin: 20px 0; 
+      /* Hide horizontal overflow if the ASCII is too wide */
+      overflow-x: hidden; 
+    }
+    
+    /* Sections Container (Mobile: Stack all three columns) */
+    .sections {
+      display: flex;
+      /* Stack vertically on mobile */
+      flex-direction: column; 
+      padding: 0 5%; 
+      gap: 15px; 
+    }
+
+    /* Individual Section */
+    .section {
+      flex: 1;
+      background-color: #f1fff1;
+      padding: 15px; /* Reduced padding */
+      border: 1px solid #c1e1c1;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #006400;
+      margin-bottom: 10px;
+    }
+
+    .section ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .footer {
+      background-color: #307030;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+
+
+    /* --- MEDIA QUERY: DESKTOP/TABLET LAYOUT (Min-width 768px) --- */
+    @media (min-width: 768px) {
+      
+      /* INTRO: Revert to your original 3-column desktop layout */
+      .intro {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 40px 5%;
+      }
+
+      .profile-photo {
+        order: 0; /* Default order */
+      }
+
+      .profile-photo img {
+        width: 300px;
+        height: 300px;
+      }
+
+      .intro-text {
+        /* Revert to original desktop layout */
+        margin-left: -150px; 
+        text-align: left;
+        order: 0;
+        padding: 0;
+        max-width: 600px;
+      }
+
+      .intro-text h1 {
+        font-size: 3.5em;
+        text-align: left;
+        margin: 0 0 20px;
+      }
+
+      .intro-text p {
+        font-size: 1.2em;
+        text-align: left;
+      }
+
+      .button-container {
+        /* Revert to vertical stack */
+        flex-direction: column; 
+        justify-content: flex-start;
+        order: 0;
+        width: auto;
+        padding: 0;
+        gap: 20px; /* Original gap */
+      }
+
+      .cv-button a, .email-button a {
+        /* Revert to original large buttons */
+        width: 100px;
+        height: 100px;
+        font-size: 2.0rem;
+      }
+
+      .email-button a {
+        font-size: 2.4rem;
+      }
+
+      /* SECTIONS: Revert to 3-column layout */
+      .sections {
+        flex-direction: row;
+        padding: 0 10%;
+        gap: 20px;
+      }
+
+      .section {
+        padding: 20px;
+      }
+      
+      .footer {
+        margin-top: 40px; /* Original margin */
+      }
     }
   </style>
 </head>
@@ -168,7 +301,6 @@
   <div id="morseBanner"></div>
 </div>
 
-<!-- Scallops below banner -->
 <div class="scallops"></div>
 
   <div class="intro">
@@ -200,7 +332,7 @@
       `.. / ... . . / -. --- .-- / - .... .- - / - .... . / -.-. .. .-. -.-. ..- -- ... - .- -. -.-. . ... / --- ..-. / --- -. . ... / -... .. .-. - .... / .- .-. . / .. .-. .-. . .-.. . ...- .- -. - .-.-.- / .. - / .. ... / .-- .... .- - / -.-- --- ..- / -.. --- / .-- .. - .... / - .... . / --. .. ..-. - / --- ..-. / .-.. .. ..-. . / - .... .- - / -.. . - . .-. -- .. -. . ... / .-- .... --- / -.-- --- ..- / .- .-. .`,
       `.. ..-. / .. / .... .- ...- . / ... . . -. / ..-. ..- .-. - .... . .-. / .. - / .. ... / -... -.-- / ... - .- -. -.. .. -. --. / --- -. / - .... . / ... .... --- ..- .-.. -.. . .-. ... / --- ..-. / --. .. .- -. - ...`,
       `.- -. -.-- --- -. . / .-- .... --- / ... . . -.- ... / - .-. ..- - .... / ... . . -.- ... / --. --- -.. --..-- / .-- .... . - .... . .-. / --- .-. / -. --- - / .... . / .-. . .- .-.. .. --.. . ... / .. -`,
-      `--- -. .-.. -.-- / .- / -.-. ..- .-. .. --- ..- ... / .- -. -.. / ..- -. .. --.- ..- . / .--. . .-. ... --- -. / .- ... / -.-- --- ..- .-. ... . .-.. ..-. / .-- --- ..- .-.. -.. / .-. . .- -.. / -- -.-- / -- --- .-. ... . / -.-. --- -.. . / -- . ... ... .- --. . ... .-.-.- / .. .----. -- / .. -. - .-. .. --. ..- . -..`,
+      `--- -. .-.. -. -.-- / .- / -.-. ..- .-. .. --- ..- ... / .- -. -.. / ..- -. .. --.- ..- . / .--. . .-. ... --- -. / .- ... / -.-- --- ..- .-. ... . .-.. ..-. / .-- --- ..- .-.. -.. / .-. . .- -.. / -- -.-- / -- --- .-. ... . / -.-. --- -.. . / -- . ... ... .- --. . ... .-.-.- / .. .----. -- / .. -. - .-. .. --. ..- . -..`,
       `.... . .-.. .-.. --- --..-- / .-- . .-.. -.-. --- -- . / - --- / -- -.-- / .-- . -... ... .. - . .-.-.- / .. / .... --- .--. . / -.-- --- ..- / . -. .--- --- -.-- / -.-. .... . -- .. ... - .-. -.-- --..-- / --- .-. / .- - / .-.. . .- ... - / .--. ..- --.. --.. .-.. . ...`,
       `--- -. . / .--. .-. --- -... .-.. . -- / .-- .. - .... / -... . .. -. --. / .- / .-.. . .- -.. . .-. --..-- / .. ... / - .... .- - / . ...- . -. / .- -- --- -. --. / -.-- --- ..- .-. / ..-. .-. .. . -. -.. ... / -.-- --- ..- / .- .-. . / .- .-.. --- -. .`,
       `.-- .... . - .... . .-. / -.-- --- ..- / .- .-.. .-- .- -.-- ... / .- --. .-. . . / .. ... / .. -. -.-. --- -. ... . --.- ..- . -. - .. .- .-.. --..-- / -... ..- - / -.-- --- ..- / -- ..- ... - / - .- -.- . / -.-. .- .-. . / --- ..-. / --- -. . / .- -. --- - .... . .-.`
@@ -248,9 +380,6 @@
     });
   </script>
 
-  <!-- Add this after your current intro section (before closing </body>) -->
-
-<!-- ASCII double helix divider -->
 <div class="ascii-divider">
 <pre>
 `-:-.   ,-;"`-:-.   ,-;"`-:-.   ,-;"`-:-.   ,-;"`-:-.   ,-;"`-:-.   ,-;"`-:-.   ,-;"
@@ -262,7 +391,6 @@
 </div>
 
 
-<!-- Three vertical sections -->
 <div class="sections">
   <div class="section">
     <h2>Research Interests</h2>
@@ -284,61 +412,9 @@
   </div>
 </div>
 
-<style>
-/* ASCII Divider */
-.ascii-divider {
-  text-align: center;
-  font-family: monospace;
-  color: #006400;
-  margin: 40px 0;
-}
-
-/* Sections Container */
-.sections {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10%;
-  gap: 20px;
-}
-
-/* Individual Section */
-.section {
-  flex: 1;
-  background-color: #f1fff1;
-  padding: 20px;
-  border: 1px solid #c1e1c1;
-  border-radius: 8px;
-  text-align: left;
-}
-
-.section h2 {
-  text-align: center;
-  color: #006400;
-  margin-bottom: 10px;
-}
-
-.section ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-</style>
-
-     <!-- Footer -->
 <footer class="footer">
   <p>© 2025 Grace Finch. All rights reserved.</p>
 </footer>
-
-<style>
-.footer {
-  background-color: #307030; /* same as banner */
-  color: white;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
-  font-size: 0.9em;
-}
-</style>
-
 
 </body>
 </html>
