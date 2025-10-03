@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grace Finch</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Garamond, serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #F9FFF8;
       color: #006400;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    
+    /* Banner */
     .banner {
       width: 100vw;
       height: 150px;
@@ -34,7 +35,7 @@
       white-space: pre-wrap;
       word-break: break-all;
       text-align: center;
-      user-select: none; /* disable selection */
+      user-select: none;
       width: 100%;
       height: 100%;
       display: flex;
@@ -42,59 +43,78 @@
       align-items: center;
       text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 20px #00cc00; /* glowing digital effect */
     }
-    
-.profile-photo {
-  position: absolute;
-  top: 50%;          /* vertically centered */
-  left: 5%;         /* shift it towards the left side */
-  transform: translateY(-50%); /* center correction */
-  text-align: center;
-}
 
-.profile-photo img {
-  width: 350px;      
-  height: 350px;
-  object-fit: cover; /* ensures it fills circle while keeping proportions */
-  object-position: center 30%;
-  border-radius: 50%; /* makes it circular */
-  /* border: 4px solid #006400;   <-- remove this line */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* subtle shadow for polish */
-}
+    /* Intro section */
+    .intro {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 40px 10%;
+    }
 
-.caption {
-  margin-top: 10px;
-  font-size: 0.9em;
-  font-style: italic;
-  color: #004d00;
-}
-
-    h1 {
-      margin-top: 40px;
-      font-size: 3em;
+    /* Profile photo */
+    .profile-photo {
+      flex: 0 0 auto;
       text-align: center;
     }
 
-    p {
-      font-size: 1.2em;
-      text-align: center;
+    .profile-photo img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      font-style: italic;
+      color: #004d00;
+    }
+
+    /* Text content */
+    .intro-text {
+      flex: 1;
+      margin-left: 50px;
       max-width: 600px;
-      margin: 10px 0 20px;
     }
 
+    .intro-text h1 {
+      font-size: 3.5em;
+      margin: 0 0 20px;
+      text-align: left;
+    }
+
+    .intro-text p {
+      font-size: 1.2em;
+      text-align: left;
+      margin: 0;
+    }
+
+    /* CV Button */
     .cv-button {
-      background-color: #006400;
-      color: #F9FFF8;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      margin-bottom: 50px;
+      flex: 0 0 auto;
     }
 
-    .cv-button:hover {
-      background-color: #004d00;
+    .cv-button a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+      background-color: #0d470d;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .cv-button a:hover {
+      background-color: #1b7c1b;
     }
   </style>
 </head>
@@ -103,15 +123,22 @@
   <div class="banner">
     <div id="morseBanner"></div>
   </div>
-  
-<div class="profile-photo">
- <img src="media/grace1.png" alt="Grace Finch">
-  <p class="caption"> I'm happy in this photo because I had just seen about 30 turtles </p>
-</div>
 
-  <h1>Grace Finch</h1>
-  <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
-  <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download CV</a>
+  <div class="intro">
+    <div class="profile-photo">
+      <img src="media/grace1.png" alt="Grace Finch">
+      <p class="caption">A photo of me at the Meadowlark Botanical Gardens</p>
+    </div>
+
+    <div class="intro-text">
+      <h1>Grace Finch</h1>
+      <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
+    </div>
+
+    <div class="cv-button">
+      <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
+    </div>
+  </div>
 
   <script>
     const phrases = [
@@ -170,3 +197,4 @@
   </script>
 </body>
 </html>
+
