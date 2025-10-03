@@ -75,11 +75,20 @@
     }
 
     /* Text content */
-    .intro-text {
-      flex: 1;
-      margin-left: -200px;
-      max-width: 600px;
-    }
+.intro-text {
+  flex: 1;
+  margin-left: -200px; /* pulls text closer to image */
+  max-width: 600px;
+}
+
+/* Button container for vertical stacking */
+.button-container {
+  display: flex;
+  flex-direction: column; /* stack buttons vertically */
+  align-items: center;    /* center horizontally */
+  gap: 20px;              /* space between CV and email buttons */
+  flex: 0 0 auto;
+}
 
     .intro-text h1 {
       font-size: 3.5em;
@@ -144,24 +153,27 @@
     <div id="morseBanner"></div>
   </div>
 
-  <div class="intro">
-    <div class="profile-photo">
-      <img src="media/grace1.png" alt="Grace Finch">
-      <p class="caption">I'm happy because I had just seen some turtles </p>
-    </div>
+<div class="intro">
+  <div class="profile-photo">
+    <img src="media/grace1.png" alt="Grace Finch">
+    <p class="caption">I'm happy because I had just seen some turtles </p>
+  </div>
 
-    <div class="intro-text">
-      <h1>Grace Finch</h1>
-      <p>Oh, hello there! Welcome to my corner of the internet. I am a scientist studying DNA-binding proteins and de novo protein design with the Lee Solomon Lab at George Mason University's Science and Technology campus in Manassas, VA. I also make puzzles (and puzzle hunts! and escape rooms!) in my free time. My favorite amino acid is Cysteine, and my favorite book of the Bible is Tobit. </p>
-    </div>
+  <div class="intro-text">
+    <h1>Grace Finch</h1>
+    <p>Oh, hello there! Welcome to my corner of the internet. I am a scientist studying DNA-binding proteins and de novo protein design with the Lee Solomon Lab at George Mason University's Science and Technology campus in Manassas, VA. I also make puzzles (and puzzle hunts! and escape rooms!) in my free time. My favorite amino acid is Cysteine, and my favorite book of the Bible is Tobit. </p>
+  </div>
 
- <div class="cv-button">
-  <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
+  <div class="button-container">
+    <div class="cv-button">
+      <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
+    </div>
+    <div class="email-button">
+      <a href="mailto:gmfinch3@gmail.com">✉️</a>
+    </div>
+  </div>
 </div>
 
-<div class="email-button">
-  <a href="mailto:gmfinch3@gmail.com">✉️</a>
-</div>
 
   </div>
 
