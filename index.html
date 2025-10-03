@@ -2,64 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grace Finch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURPLE ELEPHANT</title>
   <style>
     body {
-      background-color: #F9FFF8;
-      font-family: Garamond, serif;
-      text-align: center;
       margin: 0;
+      font-family: Garamond, serif;
+      background-color: #F9FFF8;
+      text-align: center;
     }
+
+    /* Banner styles */
     .banner {
-      background-color: #228B22; /* green banner */
-      color: white;
-      padding: 20px;
-      font-size: 20px;
+      background-color: black;
+      color: #00FF00; /* bright green */
+      padding: 40px 20px; /* twice as big as before */
+      font-size: 32px;    /* larger text */
       font-family: monospace;
+      white-space: pre-wrap; /* let Morse code wrap onto multiple lines */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px; /* ensures nice box height */
+    }
+
+    /* Typing animation */
+    .typing {
+      border-right: 2px solid #00FF00;
+      white-space: pre-wrap;
+      overflow: hidden;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-  <div class="banner" id="morseBanner"></div>
 
-  <h1>Grace Finch</h1>
+  <!-- Banner container -->
+  <div class="banner">
+    <span id="morseBanner" class="typing"></span>
+  </div>
+
+  <h1>PURPLE ELEPHANT</h1>
   <p>welcome to my website! Coding is slow and I have many projects going on... I'm working on it now</p>
 
   <script>
-    // List of phrases
     const phrases = [
-      "YOU HAVE POWER OVER YOUR MIND, NOT OUTSIDE EVENTS. REALIZE THIS, AND YOU WILL FIND STRENGTH",
-      "THE GREATEST VICTORY IS THAT WHICH REQUIRES NO BATTLE",
-      "NOW FAITH IS THE ASSURANCE OF THINGS HOPED FOR, THE CONVICTION OF THINGS NOT SEEN",
-      "I SEE NOW THAT THE CIRCUMSTANCES OF ONES BIRTH ARE IRRELEVANT. IT IS WHAT YOU DO WITH THE GIFT OF LIFE THAT DETERMINES WHO YOU ARE",
-      "IF I HAVE SEEN FURTHER IT IS BY STANDING ON THE SHOULDERS OF GIANTS",
-      "ANYONE WHO SEEKS TRUTH SEEKS GOD, WHETHER OR NOT HE REALIZES IT",
-      "ONLY A CURIOUS AND UNIQUE PERSON AS YOURSELF WOULD READ MY MORSE CODE MESSAGES. I'M INTRIGUED",
-      "HELLO, WELCOME TO MY WEBSITE. I HOPE YOU ENJOY PUZZLES",
-      "ONE PROBLEM WITH BEING A LEADER, IS THAT EVEN AMONG YOUR FRIENDS YOU ARE ALONE",
-      "WHETHER YOU ALWAYS AGREE IS INCONSEQUENTIAL, BUT YOU MUST TAKE CARE OF ONE ANOTHER"
+      `-.-- --- ..- / .... .- ...- . / .--. --- .-- . .-. / --- ...- . .-. / -.-- --- ..- .-. / -- .. -. -.. --..-- / -. --- - / --- ..- - ... .. -.. . / . ...- . -. - ... .-.-.- / .-. . .- .-.. .. --.. . / - .... .. ... --..-- / .- -. -.. / -.-- --- ..- / .-- .. .-.. .-.. / ..-. .. -. -.. / ... - .-. . -. --. - ....`,
+      `- .... . / --. .-. . .- - . ... - / ...- .. -.-. - --- .-. -.-- / .. ... / - .... .- - / .-- .... .. -.-. .... / .-. . --.- ..- .. .-. . ... / -. --- / -... .- - - .-.. .`,
+      `-. --- .-- / ..-. .- .. - .... / .. ... / - .... . / .- ... ... ..- .-. .- -. -.-. . / --- ..-. / - .... .. -. --. ... / .... --- .--. . -.. / ..-. --- .-. --..-- / - .... . / -.-. --- -. ...- .. -.-. - .. --- -. / --- ..-. / - .... .. -. --. ... / -. --- - / ... . . -.`,
+      `.. / ... . . / -. --- .-- / - .... .- - / - .... . / -.-. .. .-. -.-. ..- -- ... - .- -. -.-. . ... / --- ..-. / --- -. . ... / -... .. .-. - .... / .- .-. . / .. .-. .-. . .-.. . ...- .- -. - .-.-.- / .. - / .. ... / .-- .... .- - / -.-- --- ..- / -.. --- / .-- .. - .... / - .... . / --. .. ..-. - / --- ..-. / .-.. .. ..-. . / - .... .- - / -.. . - . .-. -- .. -. . ... / .-- .... --- / -.-- --- ..- / .- .-. .`,
+      `.. ..-. / .. / .... .- ...- . / ... . . -. / ..-. ..- .-. - .... . .-. / .. - / .. ... / -... -.-- / ... - .- -. -.. .. -. --. / --- -. / - .... . / ... .... --- ..- .-.. -.. . .-. ... / --- ..-. / --. .. .- -. - ...`,
+      `.- -. -.-- --- -. . / .-- .... --- / ... . . -.- ... / - .-. ..- - .... / ... . . -.- ... / --. --- -.. --..-- / .-- .... . - .... . .-. / --- .-. / -. --- - / .... . / .-. . .- .-.. .. --.. . ... / .. -`,
+      `--- -. .-.. -.-- / .- / -.-. ..- .-. .. --- ..- ... / .- -. -.. / ..- -. .. --.- ..- . / .--. . .-. ... --- -. / .- ... / -.-- --- ..- .-. ... . .-.. ..-. / .-- --- ..- .-.. -.. / .-. . .- -.. / -- -.-- / -- --- .-. ... . / -.-. --- -.. . / -- . ... ... .- --. . ... .-.-.- / .. .----. -- / .. -. - .-. .. --. ..- . -..`,
+      `.... . .-.. .-.. --- --..-- / .-- . .-.. -.-. --- -- . / - --- / -- -.-- / .-- . -... ... .. - . .-.-.- / .. / .... --- .--. . / -.-- --- ..- / . -. .--- --- -.-- / -.-. .... . -- .. ... - .-. -.-- --..-- / --- .-. / .- - / .-.. . .- ... - / .--. ..- --.. --.. .-.. . ...`,
+      `--- -. . / .--. .-. --- -... .-.. . -- / .-- .. - .... / -... . .. -. --. / .- / .-.. . .- -.. . .-. --..-- / .. ... / - .... .- - / . ...- . -. / .- -- --- -. --. / -.-- --- ..- .-. / ..-. .-. .. . -. -.. ... / -.-- --- ..- / .- .-. . / .- .-.. --- -. .`,
+      `.-- .... . - .... . .-. / -.-- --- ..- / .- .-.. .-- .- -.-- ... / .- --. .-. . . / .. ... / .. -. -.-. --- -. ... . --.- ..- . -. - .. .- .-.. --..-- / -... ..- - / -.-- --- ..- / -- ..- ... - / - .- -.- . / -.-. .- .-. . / --- ..-. / --- -. . / .- -. --- - .... . .-.
     ];
 
-    // Morse code dictionary
-    const morseCode = {
-      A: ".-", B: "-...", C: "-.-.", D: "-..", E: ".",
-      F: "..-.", G: "--.", H: "....", I: "..", J: ".---",
-      K: "-.-", L: ".-..", M: "--", N: "-.", O: "---",
-      P: ".--.", Q: "--.-", R: ".-.", S: "...", T: "-",
-      U: "..-", V: "...-", W: ".--", X: "-..-", Y: "-.--",
-      Z: "--..", " ": "/"
-    };
+    // pick random phrase
+    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    const banner = document.getElementById("morseBanner");
 
-    function textToMorse(text) {
-      return text.toUpperCase().split("").map(ch => morseCode[ch] || "").join(" ");
+    // typing effect
+    let i = 0;
+    function typeEffect() {
+      if (i < randomPhrase.length) {
+        banner.textContent += randomPhrase.charAt(i);
+        i++;
+        setTimeout(typeEffect, 40); // adjust typing speed here
+      }
     }
 
-    // Pick random phrase and convert
-    const phrase = phrases[Math.floor(Math.random() * phrases.length)];
-    const morse = textToMorse(phrase);
-
-    // Display in banner
-    document.getElementById("morseBanner").textContent = morse;
+    typeEffect();
   </script>
 </body>
 </html>
