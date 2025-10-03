@@ -116,6 +116,26 @@
     .cv-button a:hover {
       background-color: #1b7c1b;
     }
+    
+    .email-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  background-color: #0d470d; /* same as CV button */
+  color: white;
+  font-size: 1.5rem; /* a bit bigger for the envelope icon */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.email-button a:hover {
+  background-color: #1b7c1b; /* same hover effect */
+}
+
   </style>
 </head>
 <body>
@@ -135,9 +155,14 @@
       <p>Oh, hello there! Welcome to my corner of the internet. I am a scientist studying DNA-binding proteins and de novo protein design with the Lee Solomon Lab at George Mason University's Science and Technology campus in Manassas, VA. I also make puzzles (and puzzle hunts! and escape rooms!) in my free time. My favorite amino acid is Cysteine, and my favorite book of the Bible is Tobit. </p>
     </div>
 
-    <div class="cv-button">
-      <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
-    </div>
+ <div class="cv-button">
+  <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
+</div>
+
+<div class="email-button">
+  <a href="mailto:gmfinch3@gmail.com">✉️</a>
+</div>
+
   </div>
 
   <script>
