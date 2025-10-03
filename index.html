@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grace Finch</title>
+  <title>Grace FinchT</title>
   <style>
     body {
       font-family: Garamond, serif;
       text-align: center;
-      background-color: #F9FFF8; /* soft background */
+      background-color: #F9FFF8; /* new background color */
       color: #333;
       margin: 0;
       padding: 50px;
@@ -23,6 +23,23 @@
       margin: auto;
       line-height: 1.5;
     }
+    .cv-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 1em;
+      font-family: Garamond, serif;
+      color: white;
+      background-color: green; /* button is now green */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .cv-button:hover {
+      background-color: darkgreen; /* hover effect */
+    }
     footer {
       margin-top: 50px;
       font-size: 0.9em;
@@ -34,8 +51,12 @@
   <h1>Grace Finch</h1>
   <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
 
+  <!-- CV Download Button -->
+  <a href="GraceFinch_CV.pdf" download class="cv-button">Download My CV</a>
+
   <footer>
-    © 2025 Grace Finch — All rights reserved.
+    © 2025 Purple Elephant — All rights reserved.
   </footer>
 </body>
 </html>
+
