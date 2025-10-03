@@ -3,124 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>red ELEPHANT</title>
+  <title>PURPLE ELEPHANT</title>
   <style>
     body {
-      margin: 0;
       font-family: Garamond, serif;
       background-color: #F9FFF8;
+      color: #006400; /* dark green */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 3em;
       text-align: center;
     }
 
-    /* Banner styles */
+    p {
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .button-container {
+      margin: 20px 0;
+    }
+
+    .cv-button {
+      background-color: #006400;
+      color: #F9FFF8;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cv-button:hover {
+      background-color: #004d00;
+    }
+
     .banner {
       background-color: black;
-      color: #00FF00; /* bright green */
-      padding: 40px 20px; /* twice as big as before */
-      font-size: 32px;    /* larger text */
-      font-family: monospace;
-      white-space: pre-wrap; /* let Morse code wrap onto multiple lines */
+      color: #00FF00;
+      width: 90%;
+      max-width: 1200px;
+      height: 300px;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 200px; /* ensures nice box height */
+      overflow: hidden;
+      padding: 10px;
+      margin-bottom: 50px;
     }
 
-    /* Typing animation */
-    .typing {
-      border-right: 2px solid #00FF00;
-      white-space: pre-wrap;
-      overflow: hidden;
+    #morseBanner {
       display: inline-block;
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner container -->
-<div class="banner">
-  <span id="morseBanner" class="typing"></span>
-</div>
+  <h1>PURPLE ELEPHANT</h1>
+  <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
 
-<style>
-  .banner {
-    background-color: black;
-    color: #00FF00;
-    width: 100%;
-    height: 300px;           /* fixed height of banner */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    padding: 10px;
-  }
+  <div class="button-container">
+    <a href="Finch_CV_7.23.2025.pdf" download class="cv-button">Download CV</a>
+  </div>
 
-  #morseBanner {
-    display: inline-block;
-    font-family: monospace;
-    white-space: pre-wrap;    /* allow wrapping */
-    word-break: break-all;    /* wrap anywhere to fill width */
-    text-align: center;
-  }
-</style>
+  <div class="banner">
+    <span id="morseBanner"></span>
+  </div>
 
-<script>
-const phrases = [
-  `-.-- --- ..- / .... .- ...- . / .--. --- .-- . .-. / --- ...- . .-. / -.-- --- ..- .-. / -- .. -. -.. --..-- / -. --- - / --- ..- - ... .. -.. . / . ...- . -. - ... .-.-.- / .-. . .- .-.. .. --.. . / - .... .. ... --..-- / .- -. -.. / -.-- --- ..- / .-- .. .-.. .-.. / ..-. .. -. -.. / ... - .-. . -. --. - ....`,
-  `- .... . / --. .-. . .- - . ... - / ...- .. -.-. - --- .-. -.-- / .. ... / - .... .- - / .-- .... .. -.-. .... / .-. . --.- ..- .. .-. . ... / -. --- / -... .- - - .-.. .`,
-  `-. --- .-- / ..-. .- .. - .... / .. ... / - .... . / .- ... ... ..- .-. .- -. -.-. . / --- ..-. / - .... .. -. --. ... / .... --- .--. . -.. / ..-. --- .-. --..-- / - .... . / -.-. --- -. ...- .. -.-. - .. --- -. / --- ..-. / - .... .. -. --. ... / -. --- - / ... . . -.`,
-  `.. / ... . . / -. --- .-- / - .... .- - / - .... . / -.-. .. .-. -.-. ..- -- ... - .- -. -.-. . ... / --- ..-. / --- -. . ... / -... .. .-. - .... / .- .-. . / .. .-. .-. . .-.. . ...- .- -. - .-.-.- / .. - / .. ... / .-- .... .- - / -.-- --- ..- / -.. --- / .-- .. - .... / - .... . / --. .. ..-. - / --- ..-. / .-.. .. ..-. . / - .... .- - / -.. . - . .-. -- .. -. . ... / .-- .... --- / -.-- --- ..- / .- .-. .`,
-  `.. ..-. / .. / .... .- ...- . / ... . . -. / ..-. ..- .-. - .... . .-. / .. - / .. ... / -... -.-- / ... - .- -. -.. .. -. --. / --- -. / - .... . / ... .... --- ..- .-.. -.. . .-. ... / --- ..-. / --. .. .- -. - ...`,
-  `.- -. -.-- --- -. . / .-- .... --- / ... . . -.- ... / - .-. ..- - .... / ... . . -.- ... / --. --- -.. --..-- / .-- .... . - .... . .-. / --- .-. / -. --- - / .... . / .-. . .- .-.. .. --.. . ... / .. -`,
-  `--- -. .-.. -.-- / .- / -.-. ..- .-. .. --- ..- ... / .- -. -.. / ..- -. .. --.- ..- . / .--. . .-. ... --- -. / .- ... / -.-- --- ..- .-. ... . .-.. ..-. / .-- --- ..- .-.. -.. / .-. . .- -.. / -- -.-- / -- --- .-. ... . / -.-. --- -.. . / -- . ... ... .- --. . ... .-.-.- / .. .----. -- / .. -. - .-. .. --. ..- . -..`,
-  `.... . .-.. .-.. --- --..-- / .-- . .-.. -.-. --- -- . / - --- / -- -.-- / .-- . -... ... .. - . .-.-.- / .. / .... --- .--. . / -.-- --- ..- / . -. .--- --- -.-- / -.-. .... . -- .. ... - .-. -.-- --..-- / --- .-. / .- - / .-.. . .- ... - / .--. ..- --.. --.. .-.. . ...`,
-  `--- -. . / .--. .-. --- -... .-.. . -- / .-- .. - .... / -... . .. -. --. / .- / .-.. . .- -.. . .-. --..-- / .. ... / - .... .- - / . ...- . -. / .- -- --- -. --. / -.-- --- ..- .-. / ..-. .-. .. . -. -.. ... / -.-- --- ..- / .- .-. . / .- .-.. --- -. .`,
-  `.-- .... . - .... . .-. / -.-- --- ..- / .- .-.. .-- .- -.-- ... / .- --. .-. . . / .. ... / .. -. -.-. --- -. ... . --.- ..- . -. - .. .- .-.. --..-- / -... ..- - / -.-- --- ..- / -- ..- ... - / - .- -.- . / -.-. .- .-. . / --- ..-. / --- -. . / .- -. --- - .... . .-.`
-];
+  <script>
+    const phrases = [
+      `-.-- --- ..- / .... .- ...- . / .--. --- .-- . .-. / --- ...- . .-. / -.-- --- ..- .-. / -- .. -. -.. --..-- / -. --- - / --- ..- - ... .. -.. . / . ...- . -. - ... .-.-.- / .-. . .- .-.. .. --.. . / - .... .. ... --..-- / .- -. -.. / -.-- --- ..- / .-- .. .-.. .-.. / ..-. .. -. -.. / ... - .-. . -. --. - ....`,
+      `- .... . / --. .-. . .- - . ... - / ...- .. -.-. - --- .-. -.-- / .. ... / - .... .- - / .-- .... .. -.-. .... / .-. . --.- ..- .. .-. . ... / -. --- / -... .- - - .-.. .`,
+      `-. --- .-- / ..-. .- .. - .... / .. ... / - .... . / .- ... ... ..- .-. .- -. -.-. . / --- ..-. / - .... .. -. --. ... / .... --- .--. . -.. / ..-. --- .-. --..-- / - .... . / -.-. --- -. ...- .. -.-. - .. --- -. / --- ..-. / - .... .. -. --. ... / -. --- - / ... . . -.`,
+      `.. / ... . . / -. --- .-- / - .... .- - / - .... . / -.-. .. .-. -.-. ..- -- ... - .- -. -.-. . ... / --- ..-. / --- -. . ... / -... .. .-. - .... / .- .-. . / .. .-. .-. . .-.. . ...- .- -. - .-.-.- / .. - / .. ... / .-- .... .- - / -.-- --- ..- / -.. --- / .-- .. - .... / - .... . / --. .. ..-. - / --- ..-. / .-.. .. ..-. . / - .... .- - / -.. . - . .-. -- .. -. . ... / .-- .... --- / -.-- --- ..- / .- .-. .`,
+      `.. ..-. / .. / .... .- ...- . / ... . . -. / ..-. ..- .-. - .... . .-. / .. - / .. ... / -... -.-- / ... - .- -. -.. .. -. --. / --- -. / - .... . / ... .... --- ..- .-.. -.. . .-. ... / --- ..-. / --. .. .- -. - ...`,
+      `.- -. -.-- --- -. . / .-- .... --- / ... . . -.- ... / - .-. ..- - .... / ... . . -.- ... / --. --- -.. --..-- / .-- .... . - .... . .-. / --- .-. / -. --- - / .... . / .-. . .- .-.. .. --.. . ... / .. -`,
+      `--- -. .-.. -.-- / .- / -.-. ..- .-. .. --- ..- ... / .- -. -.. / ..- -. .. --.- ..- . / .--. . .-. ... --- -. / .- ... / -.-- --- ..- .-. ... . .-.. ..-. / .-- --- ..- .-.. -.. / .-. . .- -.. / -- -.-- / -- --- .-. ... . / -.-. --- -.. . / -- . ... ... .- --. . ... .-.-.- / .. .----. -- / .. -. - .-. .. --. ..- . -..`,
+      `.... . .-.. .-.. --- --..-- / .-- . .-.. -.-. --- -- . / - --- / -- -.-- / .-- . -... ... .. - . .-.-.- / .. / .... --- .--. . / -.-- --- ..- / . -. .--- --- -.-- / -.-. .... . -- .. ... - .-. -.-- --..-- / --- .-. / .- - / .-.. . .- ... - / .--. ..- --.. --.. .-.. . ...`,
+      `--- -. . / .--. .-. --- -... .-.. . -- / .-- .. - .... / -... . .. -. --. / .- / .-.. . .- -.. . .-. --..-- / .. ... / - .... .- - / . ...- . -. / .- -- --- -. --. / -.-- --- ..- .-. / ..-. .-. .. . -. -.. ... / -.-- --- ..- / .- .-. . / .- .-.. --- -. .`,
+      `.-- .... . - .... . .-. / -.-- --- ..- / .- .-.. .-- .- -.-- ... / .- --. .-. . . / .. ... / .. -. -.-. --- -. ... . --.- ..- . -. - .. .- .-.. --..-- / -... ..- - / -.-- --- ..- / -- ..- ... - / - .- -.- . / -.-. .- .-. . / --- ..-. / --- -. . / .- -. --- - .... . .-.`
+    ];
 
-// Pick a random phrase
-let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    const banner = document.getElementById("morseBanner");
 
-// Replace slashes with spaces
-randomPhrase = randomPhrase.replace(/\//g, " ");
+    // Pick a random phrase and replace slashes with spaces
+    let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)].replace(/\//g, " ");
 
-const banner = document.getElementById("morseBanner");
+    // Function to find maximum font size that fits
+    function getMaxFontSize() {
+      let fontSize = 50;
+      banner.style.fontSize = fontSize + "px";
+      banner.textContent = randomPhrase;
 
-// Typing animation
-let i = 0;
-function typeEffect() {
-  if (i < randomPhrase.length) {
-    banner.textContent += randomPhrase.charAt(i);
-    i++;
-    setTimeout(typeEffect, 10); // 4x faster
-  } else {
-    adjustFontToFill();
-  }
-}
-typeEffect();
+      const parentHeight = banner.parentElement.clientHeight;
+      const parentWidth = banner.parentElement.clientWidth;
 
-// Function to dynamically scale font to fill banner
-function adjustFontToFill() {
-  let fontSize = 50; // start large
-  banner.style.fontSize = fontSize + "px";
+      while ((banner.scrollHeight > parentHeight || banner.scrollWidth > parentWidth) && fontSize > 5) {
+        fontSize -= 1;
+        banner.style.fontSize = fontSize + "px";
+      }
 
-  const parentHeight = banner.parentElement.clientHeight;
-  const parentWidth = banner.parentElement.clientWidth;
+      // Clear text for typing animation
+      banner.textContent = "";
+      return fontSize;
+    }
 
-  // Decrease font until text fits both width and height
-  while ((banner.scrollHeight > parentHeight || banner.scrollWidth > parentWidth) && fontSize > 5) {
-    fontSize -= 1;
-    banner.style.fontSize = fontSize + "px";
-  }
-}
+    const finalFontSize = getMaxFontSize();
 
-// Optional: re-scale on window resize
-window.addEventListener("resize", () => {
-  adjustFontToFill();
-});
+    // Typing animation with correct font size
+    let i = 0;
+    function typeEffect() {
+      if (i < randomPhrase.length) {
+        banner.textContent += randomPhrase.charAt(i);
+        i++;
+        setTimeout(typeEffect, 10); // 4x faster
+      }
+    }
 
-</script>
-
-
+    typeEffect();
+  </script>
 </body>
 </html>
