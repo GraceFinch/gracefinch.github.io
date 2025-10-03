@@ -75,20 +75,11 @@
     }
 
     /* Text content */
-.intro-text {
-  flex: 1;
-  margin-left: -200px; /* pulls text closer to image */
-  max-width: 600px;
-}
-
-/* Button container for vertical stacking */
-.button-container {
-  display: flex;
-  flex-direction: column; /* stack buttons vertically */
-  align-items: center;    /* center horizontally */
-  gap: 20px;              /* space between CV and email buttons */
-  flex: 0 0 auto;
-}
+    .intro-text {
+      flex: 1;
+      margin-left: -150px; /* slightly closer to image */
+      max-width: 600px;
+    }
 
     .intro-text h1 {
       font-size: 3.5em;
@@ -102,11 +93,16 @@
       margin: 0;
     }
 
-    /* CV Button */
-    .cv-button {
+    /* Button container for stacked buttons */
+    .button-container {
+      display: flex;
+      flex-direction: column; /* stack vertically */
+      align-items: center;    /* center horizontally */
+      gap: 20px;              /* space between CV and email buttons */
       flex: 0 0 auto;
     }
 
+    /* CV Button */
     .cv-button a {
       display: flex;
       justify-content: center;
@@ -125,26 +121,26 @@
     .cv-button a:hover {
       background-color: #1b7c1b;
     }
-    
+
+    /* Email Button */
     .email-button a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 70px;
-  background-color: #0d470d; /* same as CV button */
-  color: white;
-  font-size: 1.5rem; /* a bit bigger for the envelope icon */
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 50%;
-  transition: background 0.3s;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+      background-color: #0d470d;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
 
-.email-button a:hover {
-  background-color: #1b7c1b; /* same hover effect */
-}
-
+    .email-button a:hover {
+      background-color: #1b7c1b;
+    }
   </style>
 </head>
 <body>
@@ -153,28 +149,25 @@
     <div id="morseBanner"></div>
   </div>
 
-<div class="intro">
-  <div class="profile-photo">
-    <img src="media/grace1.png" alt="Grace Finch">
-    <p class="caption">I'm happy because I had just seen some turtles </p>
-  </div>
-
-  <div class="intro-text">
-    <h1>Grace Finch</h1>
-    <p>Oh, hello there! Welcome to my corner of the internet. I am a scientist studying DNA-binding proteins and de novo protein design with the Lee Solomon Lab at George Mason University's Science and Technology campus in Manassas, VA. I also make puzzles (and puzzle hunts! and escape rooms!) in my free time. My favorite amino acid is Cysteine, and my favorite book of the Bible is Tobit. </p>
-  </div>
-
-  <div class="button-container">
-    <div class="cv-button">
-      <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
+  <div class="intro">
+    <div class="profile-photo">
+      <img src="media/grace1.png" alt="Grace Finch">
+      <p class="caption">I'm happy because I had just seen some turtles</p>
     </div>
-    <div class="email-button">
-      <a href="mailto:gmfinch3@gmail.com">✉️</a>
+
+    <div class="intro-text">
+      <h1>Grace Finch</h1>
+      <p>Oh, hello there! Welcome to my corner of the internet. I am a scientist studying DNA-binding proteins and de novo protein design with the Lee Solomon Lab at George Mason University's Science and Technology campus in Manassas, VA. I also make puzzles (and puzzle hunts! and escape rooms!) in my free time. My favorite amino acid is Cysteine, and my favorite book of the Bible is Tobit.</p>
     </div>
-  </div>
-</div>
 
-
+    <div class="button-container">
+      <div class="cv-button">
+        <a href="Finch_CV_7.23.2025.pdf" download>CV</a>
+      </div>
+      <div class="email-button">
+        <a href="mailto:gmfinch3@gmail.com">✉️</a>
+      </div>
+    </div>
   </div>
 
   <script>
