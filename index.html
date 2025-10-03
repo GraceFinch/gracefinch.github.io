@@ -41,6 +41,30 @@
       align-items: center;
       text-shadow: 0 0 5px #33ff33, 0 0 10px #33ff33, 0 0 20px #00cc00; /* glowing digital effect */
     }
+    
+.profile-photo {
+  position: absolute;
+  top: 50%;          /* vertically centered */
+  left: 10%;         /* shift it towards the left side */
+  transform: translateY(-50%); /* center correction */
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 250px;      /* adjust size as you like */
+  height: 250px;
+  object-fit: cover; /* ensures it fills circle while keeping proportions */
+  border-radius: 50%; /* makes it circular */
+  border: 4px solid #006400; /* dark green border to match theme */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* subtle shadow for polish */
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #004d00;
+}
 
     h1 {
       margin-top: 40px;
@@ -77,6 +101,11 @@
   <div class="banner">
     <div id="morseBanner"></div>
   </div>
+  
+<div class="profile-photo">
+  <img src="grace1.jpg" alt="Grace Finch">
+  <p class="caption">A photo of me at the Meadowlark Botanical Gardens</p>
+</div>
 
   <h1>Grace Finch</h1>
   <p>Welcome to my website! Coding is slow and I have many projects going on... I'm working on it now.</p>
